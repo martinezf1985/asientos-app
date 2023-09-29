@@ -1,0 +1,6 @@
+passwordname: main-2023-09-25-irp6cr
+
+user: yqngkntckmapybg4ytna
+pass: pscale_pw_F9JkTODYPgzXJ7JMAxSWXronZLyNieolFVkWxjRDDXP
+
+env: DATABASE_URL='mysql://yqngkntckmapybg4ytna:pscale_pw_F9JkTODYPgzXJ7JMAxSWXronZLyNieolFVkWxjRDDXP@aws.connect.psdb.cloud/lugares-selec?sslaccept=strict'
