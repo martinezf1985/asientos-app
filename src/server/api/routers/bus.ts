@@ -22,7 +22,7 @@ getBus:publicProcedure
   })
   )
   .query(({input:{busId}})=>{
-  const response= prisma.bus.findUnique({wuere: {id: busId}});
+  const response= prisma.bus.findUnique({where: {id: busId}});
   return response;
 })
 

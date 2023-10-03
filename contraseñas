@@ -1,6 +1,10 @@
-passwordname: main-2023-09-25-irp6cr
 
-user: yqngkntckmapybg4ytna
-pass: pscale_pw_F9JkTODYPgzXJ7JMAxSWXronZLyNieolFVkWxjRDDXP
+# passwordname: main-2023-10-02-1o08bi
 
-env: DATABASE_URL='mysql://yqngkntckmapybg4ytna:pscale_pw_F9JkTODYPgzXJ7JMAxSWXronZLyNieolFVkWxjRDDXP@aws.connect.psdb.cloud/lugares-selec?sslaccept=strict'
+# user: 43a8gseftfdjo8tw2ewd
+# pass: pscale_pw_sNtbZuoV1Go0bBt44M5gKFRvDwVK0hWK27tMwQ3RDzo
+
+
+# DATABASE_URL='mysql://43a8gseftfdjo8tw2ewd:pscale_pw_sNtbZuoV1Go0bBt44M5gKFRvDwVK0hWK27tMwQ3RDzo@aws.connect.psdb.cloud/lugares-data-base?sslaccept=strict'
+
+
