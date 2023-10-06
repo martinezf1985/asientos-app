@@ -17,6 +17,6 @@ if(response.isLoading){
   return <p>cargando...</p>
 }
   
- return response.data && <Bus seats={response.data?.seats}/>
+ return response.data && <Bus busId={parseInt(router.query.id as string)} seats={response.data?.seats}/>
   
 }
