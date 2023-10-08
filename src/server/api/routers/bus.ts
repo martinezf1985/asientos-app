@@ -46,5 +46,19 @@ export const busRouter = createTRPCRouter({
         console.error("Error al reservar el asiento:", error);
         throw new Error("No se pudo reservar el asiento.");
       }
-    })
+    }),
+
+getBookedSeats : publicProcedure
+.input(z.object({busId: z.number()}))
+.query(async ({input:{busId}})=>{
+  const response = await prisma.bookedSeats.findMany({
+    where: {
+      busId,
+    },
+  });
+  return response.map((seat)=> seat.number);
+}),
+
+
+
 });

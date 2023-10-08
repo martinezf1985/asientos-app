@@ -32,7 +32,9 @@ bookSeatMutation.mutate({
 }
 );
 }
-
+const response =api.bus.getBookedSeats.useQuery({busId});
+console.log({bookedSeats: response.data});
+const bookedSeats = response.data;
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -42,13 +44,25 @@ bookSeatMutation.mutate({
             <div className="grid grid-cols-2 gap-4">
               
               { 
-                firstRow.map(seat=> <Seat setSelectedSeat={setSelectedSeat} number={seat} key={seat}/>)
+                firstRow.map(seat=> 
+                <Seat
+                 setSelectedSeat={setSelectedSeat}
+                  number={seat}
+                   key={seat}
+                   booked={bookedSeats?.includes(seat)}
+                   />)
               }
             </div>
 
             <div className="grid grid-cols-2 gap-4">
             { 
-                secondRow.map(seat=> <Seat setSelectedSeat={setSelectedSeat} number={seat} key={seat} />)
+                secondRow.map(seat=> 
+                <Seat
+                 setSelectedSeat={setSelectedSeat}
+                  number={seat}
+                   key={seat}
+                   booked={bookedSeats?.includes(seat)}
+                   />)
               }
 
             </div>
