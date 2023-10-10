@@ -2,7 +2,7 @@
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { PrismaClient } from '@prisma/client';
 import { z } from "zod";
-
+import Pusher from 'pusher'
 const prisma = new PrismaClient();
 
 export const busRouter = createTRPCRouter({
@@ -41,6 +41,20 @@ export const busRouter = createTRPCRouter({
             busId,
           },
         });
+        if(response){
+          const pusher = new Pusher({
+            appId: "1684787",
+            key: "00f7f302034e3ab5579d",
+            secret: "ac828ae293d1e5ccd96a",
+            cluster: "sa1",
+            useTLS: false
+          });
+          
+          pusher.trigger("lugares-real-time", "booked-seat", {
+            message: "hello world"
+            });
+          
+        }
         return response;
       } catch (error) {
         console.error("Error al reservar el asiento:", error);

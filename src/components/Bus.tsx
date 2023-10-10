@@ -1,6 +1,7 @@
 import { api } from "@/utils/api";
 import { Seat } from "./Seat";
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import Pusher from "pusher-js";
 
 
 interface Props {
@@ -35,6 +36,30 @@ bookSeatMutation.mutate({
 const response =api.bus.getBookedSeats.useQuery({busId});
 console.log({bookedSeats: response.data});
 const bookedSeats = response.data;
+
+
+const pusher = new Pusher("00f7f302034e3ab5579d", {
+  cluster:"sa1",
+});
+
+const utils = api.useContext();
+
+useEffect(()=>{
+  const channel = pusher.subscribe('lugares-real-time');
+
+channel.bind('booked-seat', ()=>{
+ 
+  utils.bus.getBookedSeats.invalidate();
+})
+return ()=>{
+  pusher.unsubscribe('lugares-real-time')
+}
+
+
+})
+
+
+
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
